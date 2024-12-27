@@ -10,6 +10,7 @@ const LinkBlock = ({ type, title, path }) => {
         if (videoRef.current && type === "video") {
             videoRef.current.muted = true;
             videoRef.current.loop = true;
+            videoRef.current.playsInline = true; // Явно указываем свойство
             videoRef.current.play();
         }
     }, []);
@@ -27,7 +28,15 @@ const LinkBlock = ({ type, title, path }) => {
             {type === "video" && (
                 <>
                     <div className="link-block__video">
-                        <video ref={videoRef} src={videoSrc} className="link-block__video-player">
+                        <video
+                            ref={videoRef}
+                            src={videoSrc}
+                            className="link-block__video-player"
+                            muted
+                            loop
+                            playsInline
+                            webkitPlaysinline
+                        >
                             Ваш браузер не поддерживает воспроизведение видео.
                         </video>
                     </div>
