@@ -5,16 +5,25 @@ const VideoGallery = () => {
     const videoRef = useRef(null);
 
     useEffect(() => {
-        if (videoRef.current) {
+        if (videoRef.current && type === "video") {
             videoRef.current.muted = true;
             videoRef.current.loop = true;
+            videoRef.current.playsInline = true;
             videoRef.current.play();
         }
     }, []);
 
     return (
         <div className="video-gallery__container">
-            <video ref={videoRef} src={videoSrc} className="video-gallery"></video>
+            <video
+                ref={videoRef}
+                src={videoSrc}
+                className="video-gallery"
+                muted
+                loop
+                playsInline
+                webkitPlaysinline
+            ></video>
         </div>
     );
 };
