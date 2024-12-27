@@ -5,7 +5,7 @@ const VideoGallery = () => {
     const videoRef = useRef(null);
 
     useEffect(() => {
-        if (videoRef.current && type === "video") {
+        if (videoRef.current) {
             videoRef.current.muted = true;
             videoRef.current.loop = true;
             videoRef.current.playsInline = true;
