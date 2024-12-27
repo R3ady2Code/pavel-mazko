@@ -71,6 +71,7 @@ const PhotosGallery = () => {
                     modules={[Mousewheel]}
                     slideToClickedSlide={true}
                     onScroll={onSwiper}
+                    onTouchMove={onSwiper}
                 >
                     {gallery.map((img, index) => (
                         <SwiperSlide key={index} className="gallery-swiper__item">
