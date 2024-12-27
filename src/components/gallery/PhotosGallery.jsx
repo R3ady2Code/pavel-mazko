@@ -62,8 +62,13 @@ const PhotosGallery = () => {
         <>
             {isAllImagesLoaded && (
                 <Swiper
-                    slidesPerView={"auto"}
+                    slidesPerView={1}
                     loop={true}
+                    breakpoints={{
+                        590: {
+                            slidesPerView: "auto"
+                        }
+                    }}
                     className="gallery-swiper"
                     mousewheel={true}
                     ref={swiperRef}

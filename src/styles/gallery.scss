@@ -27,8 +27,24 @@
     width: 100%;
     max-width: 100vw;
     padding: 22px 0;
+    gap: 10px;
 
     align-items: center;
+
+    @media (max-width: 590px) {
+        flex-direction: column;
+        align-items: center;
+
+        .gallery-ui__nav {
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        .gallery-ui__close {
+            margin-left: 0;
+            padding-right: 0;
+        }
+    }
 }
 
 .gallery-ui__nav {
