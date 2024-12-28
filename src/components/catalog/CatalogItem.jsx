@@ -21,7 +21,19 @@ const CatalogItem = ({ id, title, subtitle, price, secondSrc, imgSources, coverI
             to={`/catalog/${id}`}
         >
             <div className="product-item__cover">
-                {isOnMouse && imgSources.length > 1 ? <img src={secondSrc} alt="" /> : <img src={coverImg} alt="" />}
+                {/* {isOnMouse && imgSources.length > 1 ? <img src={secondSrc} alt="" /> : <img src={coverImg} alt="" />} */}
+                {imgSources.length > 1 ? (
+                    <>
+                        <img src={coverImg} alt="First" className={`image ${isOnMouse ? "fade-out" : "fade-in"}`} />
+                        <img
+                            src={secondSrc}
+                            alt="Second"
+                            className={`image second ${isOnMouse ? "fade-in " : "fade-out"}`}
+                        />
+                    </>
+                ) : (
+                    <img src={coverImg} alt="First" className={`image fade-in`} />
+                )}
 
                 <label className="product-item__span">Sold out</label>
             </div>
