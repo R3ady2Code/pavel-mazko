@@ -1,8 +1,9 @@
 // postcss.config.js
+import autoprefixer from "autoprefixer";
+
 export default {
     plugins: [
-        require("autoprefixer")({
-            // Настройки Autoprefixer (опционально)
+        autoprefixer({
             overrideBrowserslist: ["> 1%", "last 2 versions", "not dead"]
         })
     ]
