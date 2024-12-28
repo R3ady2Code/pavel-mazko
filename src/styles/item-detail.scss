@@ -71,6 +71,10 @@
         object-fit: cover;
         margin: 0 auto;
     }
+
+    @media (max-width: 756px) {
+        padding: 18px 25px;
+    }
 }
 
 .item-card__properties li + li {
@@ -87,6 +91,7 @@
     border: 1px solid #dfdfdf;
     border-width: 0 1px 0 1px;
     max-width: 100%;
+    height: 100%;
     user-select: none;
 
     .swiper-arrows {
@@ -238,9 +243,13 @@
 
     .swiper.item-card__swiper {
         margin: 0 auto;
-        min-height: 480px;
+        height: 480px;
         width: 100%;
         max-width: 500px;
+
+        @media (max-width: 600px) {
+            height: 480px;
+        }
     }
 
     .item-card__left {
