@@ -28,7 +28,7 @@ const CatalogItem = ({ id, title, subtitle, price, secondSrc, imgSources, coverI
                         <img
                             src={secondSrc}
                             alt="Second"
-                            className={`image second ${isOnMouse ? "fade-in " : "fade-out"}`}
+                            className={`image second ${isOnMouse ? "fade-in scale-up" : "fade-out"}`}
                         />
                     </>
                 ) : (
