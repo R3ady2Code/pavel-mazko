@@ -64,7 +64,7 @@ const AdminGallery = () => {
     };
 
     useEffect(() => {
-        if (!isAuthenticated) navigate("/admin");
+        if (!isAuthenticated) navigate("/yjw48jkxqr");
     }, []);
 
     useEffect(() => {

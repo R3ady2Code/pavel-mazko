@@ -43,9 +43,9 @@ function App() {
                     <Route path="/catalog" element={<Catalog />} />
                     <Route path="/gallery" element={<Gallery />} />
                     <Route path="/catalog/:id" element={<ItemDetail />} />
-                    <Route path="/admin" element={<Admin />} />
-                    <Route path="/admin/product" element={<AdminProduct />} />
-                    <Route path="/admin/gallery" element={<AdminGallery />} />
+                    <Route path="/yjw48jkxqr" element={<Admin />} />
+                    <Route path="/yjw48jkxqr/product" element={<AdminProduct />} />
+                    <Route path="/yjw48jkxqr/gallery" element={<AdminGallery />} />
                 </Routes>
             </Router>
         </>

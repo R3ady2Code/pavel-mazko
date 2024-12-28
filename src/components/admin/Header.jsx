@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const Header = () => {
     return (
         <div className="admin-header">
-            <Link to="/admin/product">Продукты</Link>
-            <Link to="/admin/gallery">Галерея</Link>
+            <Link to="/yjw48jkxqr/product">Продукты</Link>
+            <Link to="/yjw48jkxqr/gallery">Галерея</Link>
         </div>
     );
 };

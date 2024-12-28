@@ -10,18 +10,18 @@ const AdminPage = () => {
     const navigate = useNavigate();
 
     const handleLogin = () => {
-        if (password === "111") {
+        if (password === "AR27J2@nc6coWu1") {
             const authKey = btoa(`${password}`);
             localStorage.setItem("authKey", authKey);
             setIsAuthenticated(true);
-            navigate("/admin/product");
+            navigate("/yjw48jkxqr/product");
         } else {
             alert("Please enter both username and password");
         }
     };
 
     useEffect(() => {
-        if (isAuthenticated) navigate("/admin/product");
+        if (isAuthenticated) navigate("/yjw48jkxqr/product");
     }, []);
 
     return (
