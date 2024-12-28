@@ -65,6 +65,7 @@
     height: 100%;
     width: 100%;
     padding: 18px 70px;
+    cursor: pointer;
 
     img {
         height: 100%;
@@ -394,6 +395,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    height: 100vh;
+
+    img {
+        max-width: 80%;
+        max-height: 80%;
+    }
 }
 
 .item-detail__main {
