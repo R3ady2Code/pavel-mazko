@@ -32,6 +32,9 @@
     color: #fa0805;
     border: 1px solid #dfdfdf;
     text-transform: uppercase;
+    text-decoration-skip-ink: none;
+    -webkit-text-decoration-skip-ink: none;
+    -webkit-appearance: none;
 
     position: absolute;
 
