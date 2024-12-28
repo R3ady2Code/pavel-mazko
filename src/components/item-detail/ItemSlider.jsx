@@ -22,9 +22,9 @@ const ItemSlider = ({ photos, coverImg }) => {
     return (
         <>
             {activeImage && (
-                <div class="fullpic">
-                    <img src={activeImage} alt="" />
-                    <div className="fullpic__btn-close" onClick={() => setActiveImage(null)}>
+                <div class="fullpic" onClick={() => setActiveImage(null)}>
+                    <img src={activeImage} alt="" onClick={(e) => e.stopPropagation()} />
+                    <div className="fullpic__btn-close">
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
                             <rect
                                 x="1.75415"
