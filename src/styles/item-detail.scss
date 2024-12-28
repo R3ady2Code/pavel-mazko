@@ -291,6 +291,10 @@
 
 .marquee-container:hover .marquee {
     animation-play-state: paused; /* При наведении анимация приостанавливается */
+
+    @media (max-width: 590px) {
+        animation-play-state: initial;
+    }
 }
 
 .more-slide {
