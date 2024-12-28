@@ -25,7 +25,6 @@
 .product-item__span {
     font-size: 10px;
     font-weight: 700;
-    line-height: 11px;
     letter-spacing: 0.06em;
     text-align: center;
     text-decoration-skip-ink: none;
@@ -34,7 +33,7 @@
     text-transform: uppercase;
 
     position: absolute;
-    padding: 6px 9px 4px 9px;
+    padding: 6px 9px 3px 9px;
 
     background: #fff;
 
@@ -45,8 +44,7 @@
 
     @media (max-width: 756px) {
         font-size: 7px;
-        line-height: 9px;
-        padding: 5px 8px 2px 8px;
+        padding: 5px 8px 3px 8px;
     }
 }
 
