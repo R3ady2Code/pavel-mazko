@@ -260,6 +260,7 @@
         width: 100%;
         max-width: 500px;
 
+        border: none;
         @media (max-width: 600px) {
             height: 480px;
         }
@@ -363,6 +364,8 @@
     @media (max-width: 1200px) {
         display: flex;
         flex-direction: column;
+
+        border-top: 1px solid #dfdfdf;
 
         padding: 13px 16px;
 
