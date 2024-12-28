@@ -21,7 +21,6 @@ const CatalogItem = ({ id, title, subtitle, price, secondSrc, imgSources, coverI
             to={`/catalog/${id}`}
         >
             <div className="product-item__cover">
-                {/* {isOnMouse && imgSources.length > 1 ? <img src={secondSrc} alt="" /> : <img src={coverImg} alt="" />} */}
                 {imgSources.length > 1 ? (
                     <>
                         <img src={coverImg} alt="First" className={`image ${isOnMouse ? "fade-out" : "fade-in"}`} />

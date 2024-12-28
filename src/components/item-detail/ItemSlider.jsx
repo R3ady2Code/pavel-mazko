@@ -6,6 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const ItemSlider = ({ photos, coverImg }) => {
+    const [activeImage, setActiveImage] = useState(null);
     const prevRef = useRef(null);
     const nextRef = useRef(null);
     const sliderRef = useRef();
@@ -20,6 +21,31 @@ const ItemSlider = ({ photos, coverImg }) => {
 
     return (
         <>
+            {activeImage && (
+                <div class="fullpic">
+                    <img src={activeImage} alt="" />
+                    <div className="fullpic__btn-close" onClick={() => setActiveImage(null)}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
+                            <rect
+                                x="1.75415"
+                                y="0.840027"
+                                width="14"
+                                height="2"
+                                transform="rotate(45 1.75415 0.840027)"
+                                fill="white"
+                            />
+                            <rect
+                                x="0.339966"
+                                y="10.7395"
+                                width="14"
+                                height="2"
+                                transform="rotate(-45 0.339966 10.7395)"
+                                fill="white"
+                            />
+                        </svg>
+                    </div>
+                </div>
+            )}
             <Swiper
                 slidesPerView={1}
                 loop={true}
@@ -34,7 +60,7 @@ const ItemSlider = ({ photos, coverImg }) => {
             >
                 {displayedPhotos.map((src, index) => (
                     <SwiperSlide key={index}>
-                        <div className="item-card__cover">
+                        <div className="item-card__cover" onClick={() => setActiveImage(src)}>
                             <img src={src} alt={`Slide ${index + 1}`} />
                         </div>
                     </SwiperSlide>

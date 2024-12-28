@@ -217,3 +217,12 @@ main {
         margin-bottom: 90px;
     }
 }
+
+.fullpic__btn-close {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    rect {
+        fill: #000000;
+    }
+}
