@@ -1,4 +1,5 @@
 import { defineConfig } from "vite";
+import autoprefixer from "autoprefixer";
 import react from "@vitejs/plugin-react-swc";
 
 // https://vite.dev/config/
@@ -7,7 +8,7 @@ export default defineConfig({
     css: {
         postcss: {
             plugins: [
-                require("autoprefixer")({
+                autoprefixer({
                     overrideBrowserslist: ["> 1%", "last 2 versions", "not dead"]
                 })
             ]
