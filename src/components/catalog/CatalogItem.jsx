@@ -23,7 +23,7 @@ const CatalogItem = ({ id, title, subtitle, price, secondSrc, imgSources, coverI
             <div className="product-item__cover">
                 {isOnMouse && imgSources.length > 1 ? <img src={secondSrc} alt="" /> : <img src={coverImg} alt="" />}
 
-                <span className="product-item__span">Sold out</span>
+                <label className="product-item__span">Sold out</label>
             </div>
             <div className="product-item__info">
                 <div className="product-item__title">
