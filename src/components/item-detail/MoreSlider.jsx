@@ -2,75 +2,61 @@ import React, { useEffect, useRef, useState } from "react";
 import MoreSlide from "./MoreSlide";
 
 const MoreSlider = ({ items }) => {
-    const containerRef = useRef(null);
     const contentRef = useRef(null);
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0);
-    const [scrollLeft, setScrollLeft] = useState(0);
+    const [currentTranslate, setCurrentTranslate] = useState(0);
 
     const handleMouseDown = (e) => {
         setIsDragging(true);
-        setStartX(e.pageX - containerRef.current.offsetLeft);
-        setScrollLeft(containerRef.current.scrollLeft);
+        setStartX(e.pageX - currentTranslate);
     };
 
     const handleMouseMove = (e) => {
         if (!isDragging) return;
-        e.preventDefault();
-        const x = e.pageX - containerRef.current.offsetLeft;
-        const walk = (x - startX) * 1.5; // Скорость перетаскивания
-        containerRef.current.scrollLeft = scrollLeft - walk;
+
+        const newTranslate = e.pageX - startX;
+        setCurrentTranslate(newTranslate);
+        contentRef.current.style.transform = `translateX(${newTranslate}px)`;
     };
 
     const handleMouseUpOrLeave = () => {
         setIsDragging(false);
+        contentRef.current.classList.remove("marquee_no-anime");
     };
 
     const handleTouchStart = (e) => {
-        setIsDragging(true);
         const touch = e.touches[0];
-        setStartX(touch.pageX - containerRef.current.offsetLeft);
-        setScrollLeft(containerRef.current.scrollLeft);
+        contentRef.current.classList.add("marquee_no-anime");
+        setIsDragging(true);
+        setStartX(touch.pageX - currentTranslate);
     };
 
     const handleTouchMove = (e) => {
         if (!isDragging) return;
+
         const touch = e.touches[0];
-        const x = touch.pageX - containerRef.current.offsetLeft;
-        const walk = (x - startX) * 1.5; // Скорость перетаскивания
-        containerRef.current.scrollLeft = scrollLeft - walk;
+        const newTranslate = touch.pageX - startX;
+        setCurrentTranslate(newTranslate);
+        contentRef.current.style.transform = `translateX(${newTranslate}px)`;
     };
 
     const handleTouchEnd = () => {
         setIsDragging(false);
     };
 
-    useEffect(() => {
-        const container = containerRef.current;
-
-        if (window.innerWidth <= 590) {
-            container.addEventListener("touchstart", handleTouchStart);
-            container.addEventListener("touchmove", handleTouchMove);
-            container.addEventListener("touchend", handleTouchEnd);
-        }
-
-        return () => {
-            container.removeEventListener("touchstart", handleTouchStart);
-            container.removeEventListener("touchmove", handleTouchMove);
-            container.removeEventListener("touchend", handleTouchEnd);
-        };
-    }, []);
-
     return (
         <div
             className="marquee-container"
-            ref={containerRef}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUpOrLeave}
             onMouseLeave={handleMouseUpOrLeave}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
         >
-            <div className="marquee" ref={contentRef}>
+            <div className="marquee " ref={contentRef}>
                 {new Array(10).fill(0).map((i) => items?.map((item, index) => <MoreSlide key={index} item={item} />))}
             </div>
         </div>

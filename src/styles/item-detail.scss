@@ -189,6 +189,8 @@
     min-width: 275px;
     height: 345px;
     border: 1px solid #dfdfdf;
+    border-width: 1px 1px 1px 0;
+
     display: block;
 
     img {
@@ -274,6 +276,12 @@
     animation: marquee 30s linear infinite; /* Анимация */
 }
 
+@media (max-width: 756px) {
+    .marquee_no-anime {
+        animation: none;
+    }
+}
+
 /* Анимация бесконечного бегущего текста */
 @keyframes marquee {
     0% {
@@ -320,6 +328,10 @@
     opacity: 0;
     transform: scale(1);
     padding: 0 25px;
+
+    @media (max-width: 756px) {
+        padding: 0 13px;
+    }
 }
 
 .image.fade-in {

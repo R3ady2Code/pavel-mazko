@@ -19,6 +19,16 @@ const ItemDetail = () => {
 
     const [isLoaderVisible, setLoaderVisible] = useState(true);
 
+    const handleScrollToTop = () => {
+        window.scrollTo({
+            top: 0
+        });
+    };
+
+    useEffect(() => {
+        handleScrollToTop();
+    }, []);
+
     useEffect(() => {
         if (status === "idle" || !item) {
             dispatch(fetchItems());
