@@ -2,7 +2,7 @@ import { getDownloadURL, ref } from "firebase/storage";
 import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
-const CatalogItem = ({ id, title, subtitle, price, secondSrc, coverImg, soldOut }) => {
+const CatalogItem = ({ id, title, subtitle, price, secondSrc, imgSources, coverImg, soldOut }) => {
     const [isOnMouse, setIsOnMouse] = useState(false);
 
     const handleMouseEnter = () => {
@@ -21,7 +21,7 @@ const CatalogItem = ({ id, title, subtitle, price, secondSrc, coverImg, soldOut 
             to={`/catalog/${id}`}
         >
             <div className="product-item__cover">
-                {isOnMouse ? <img src={secondSrc} alt="" /> : <img src={coverImg} alt="" />}
+                {isOnMouse && imgSources.length > 1 ? <img src={secondSrc} alt="" /> : <img src={coverImg} alt="" />}
 
                 <span className="product-item__span">Sold out</span>
             </div>

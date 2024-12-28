@@ -34,15 +34,26 @@
     @media (max-width: 590px) {
         flex-direction: column;
         align-items: center;
+        padding: 26px 0;
+        gap: 27px;
 
         .gallery-ui__nav {
             margin-left: 0;
             padding-left: 0;
+            gap: 15px;
         }
 
         .gallery-ui__close {
             margin-left: 0;
             padding-right: 0;
+        }
+
+        .gallery-ui__nav-item {
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 14.95px;
+            letter-spacing: 0.06em;
+            padding: 12px;
         }
     }
 }
@@ -127,5 +138,18 @@
         letter-spacing: 0.06em;
         text-transform: uppercase;
         color: #ffffff;
+
+        @media (max-width: 756px) {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 19px;
+            letter-spacing: 0.06em;
+        }
+    }
+}
+
+@media (max-width: 756px) {
+    .photo-gallery__slide {
+        gap: 6px;
     }
 }

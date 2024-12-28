@@ -37,8 +37,8 @@ const ItemDetail = () => {
                     <Loader />
                 </div>
             )}
-            <Header />
-            <main>
+            <Header isCardDetail={true} />
+            <main className="item-detail__main">
                 {item && (
                     <>
                         <section className="item-card with__max-width">

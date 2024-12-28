@@ -40,14 +40,16 @@ const ItemSlider = ({ photos, coverImg }) => {
                     </SwiperSlide>
                 ))}
 
-                <div className="swiper-arrows">
-                    <div className="swiper-arrows__left" onClick={() => sliderRef.current?.slidePrev()}>
-                        ←
+                {displayedPhotos.length > 1 && (
+                    <div className="swiper-arrows">
+                        <div className="swiper-arrows__left" onClick={() => sliderRef.current?.slidePrev()}>
+                            ←
+                        </div>
+                        <div className="swiper-arrows__right" onClick={() => sliderRef.current?.slideNext()}>
+                            →
+                        </div>
                     </div>
-                    <div className="swiper-arrows__right" onClick={() => sliderRef.current?.slideNext()}>
-                        →
-                    </div>
-                </div>
+                )}
             </Swiper>
         </>
     );

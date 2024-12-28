@@ -9,34 +9,21 @@ import "../styles/gallery.scss";
 import { Link } from "react-router-dom";
 
 const Gallery = () => {
-    const dispatch = useDispatch();
     const [isPhotoGallery, setIsPhotoGallery] = useState(true);
-    const { gallery, status, error } = useSelector((state) => state.items);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 756);
 
-    const [isLoaderVisible, setLoaderVisible] = useState(true);
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 756);
+        };
 
-    // useEffect(() => {
-    //     if (status === "idle") {
-    //         dispatch(fetchGallery());
-    //     }
+        window.addEventListener("resize", handleResize);
 
-    //     if (status === "succeeded") {
-    //         const timer = setTimeout(() => {
-    //             setLoaderVisible(false);
-    //             setIsPhotoGallery(false);
-    //             setIsPhotoGallery(true);
-    //         }, 1000);
-    //         return () => clearTimeout(timer);
-    //     }
-    // }, [status, dispatch]);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     return (
         <>
-            {/* {isLoaderVisible && (
-                <div className={`loader-container ${status === "succeeded" ? "fade-out" : ""}`}>
-                    <Loader />
-                </div>
-            )} */}
             <main>
                 {isPhotoGallery ? <PhotosGallery /> : <VideoGallery />}
                 <div className="gallery-ui">
@@ -55,7 +42,34 @@ const Gallery = () => {
                         </span>
                     </nav>
                     <Link to="/" className="gallery-ui__close">
-                        Закрыть
+                        {isMobile ? (
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="12"
+                                height="13"
+                                viewBox="0 0 12 13"
+                                fill="none"
+                            >
+                                <rect
+                                    x="1.75415"
+                                    y="0.840027"
+                                    width="14"
+                                    height="2"
+                                    transform="rotate(45 1.75415 0.840027)"
+                                    fill="white"
+                                />
+                                <rect
+                                    x="0.339966"
+                                    y="10.7395"
+                                    width="14"
+                                    height="2"
+                                    transform="rotate(-45 0.339966 10.7395)"
+                                    fill="white"
+                                />
+                            </svg>
+                        ) : (
+                            "Закрыть"
+                        )}
                     </Link>
                 </div>
             </main>

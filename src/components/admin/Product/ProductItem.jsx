@@ -33,7 +33,7 @@ const ProductItem = ({ item }) => {
         for await (let file of files) {
             try {
                 const options = {
-                    maxSizeMB: 0.3, // Maximum file size (1MB in this case)
+                    maxSizeMB: 0.2, // Maximum file size (1MB in this case)
                     maxWidthOrHeight: 1024, // Maximum width or height
                     useWebWorker: true // Use web worker for better performance
                 };

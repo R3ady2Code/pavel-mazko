@@ -28,7 +28,24 @@ const MoreSlide = ({ item }) => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-            <img src={isOnMouse ? item.secondSrc : item.coverImg} />
+            <div className="image-wrapper">
+                {item.imgSources.length > 1 ? (
+                    <>
+                        <img
+                            src={item.coverImg}
+                            alt="First"
+                            className={`image ${isOnMouse ? "fade-out" : "fade-in"}`}
+                        />
+                        <img
+                            src={item.secondSrc}
+                            alt="Second"
+                            className={`image second ${isOnMouse ? "fade-in scale-up" : "fade-out"}`}
+                        />
+                    </>
+                ) : (
+                    <img src={item.coverImg} alt="First" className={`image fade-in`} />
+                )}
+            </div>
         </Link>
     );
 };

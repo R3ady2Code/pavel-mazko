@@ -2,15 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logoSrc from "../assets/Logo.png";
 
-const Header = () => {
+const Header = ({ isCardDetail }) => {
     return (
         <header className="header">
-            <Link to="/" className="header__link">
-                Главная
+            <Link to={isCardDetail ? "/catalog" : "/"} className="header__link">
+                {isCardDetail ? "Каталог" : "Главная"}
             </Link>
-            <div className="header__logo">
+            <Link to="/" className="header__logo">
                 <img src={logoSrc} alt="" />
-            </div>
+            </Link>
             <a href="https://t.me/pavelmazkosupport" target="_blank" className="header__link">
                 Вопросы
             </a>
