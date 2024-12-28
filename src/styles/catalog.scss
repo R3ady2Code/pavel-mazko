@@ -24,6 +24,7 @@
 
 .product-item__span {
     font-size: 10px;
+    line-height: 80%;
     font-weight: 700;
     letter-spacing: 0.06em;
     text-align: center;
@@ -33,7 +34,6 @@
     text-transform: uppercase;
 
     position: absolute;
-    padding: 6px 9px 3px 9px;
 
     background: #fff;
 
@@ -42,15 +42,22 @@
 
     display: none;
 
+    width: 74px;
+    padding: 9px 0 7px;
     @media (max-width: 756px) {
         font-size: 7px;
-        padding: 5px 8px 3px 8px;
+        line-height: 7px;
+
+        width: 56px;
+        padding: 7px 0 4px;
     }
 }
 
 .product-item_sold {
     .product-item__span {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
