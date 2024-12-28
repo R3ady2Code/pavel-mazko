@@ -199,6 +199,12 @@ main {
             width: 100%;
             height: 50vh;
         }
+
+        .link-block:first-child {
+            img {
+                transform: translateY(0.5px);
+            }
+        }
     }
 }
 
