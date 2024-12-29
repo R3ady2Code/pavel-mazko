@@ -40,6 +40,8 @@ const ItemDetail = () => {
         }
     }, [status, dispatch, item]);
 
+    console.log(item);
+
     return (
         <>
             {isLoaderVisible && (
@@ -73,9 +75,12 @@ const ItemDetail = () => {
                                     <a
                                         href="https://t.me/pavelmazkosupport"
                                         target="_blank"
-                                        className="item-card__button"
+                                        className={`item-card__button ${
+                                            !item.soldOut ? "" : "item-card__button_sold-out"
+                                        }`}
+                                        onClick={(e) => item.soldOut && e.preventDefault()}
                                     >
-                                        перейти к оформлению
+                                        {item.soldOut ? "распродано" : "перейти к оформлению"}
                                     </a>
 
                                     <ul className="item-card__properties">
@@ -97,8 +102,13 @@ const ItemDetail = () => {
                                     <span>₽ {item.price}</span>
                                 </div>
 
-                                <a href="https://t.me/pavelmazkosupport" target="_blank" className="item-card__button">
-                                    перейти к оформлению
+                                <a
+                                    href="https://t.me/pavelmazkosupport"
+                                    target="_blank"
+                                    className={`item-card__button ${!item.soldOut ? "" : "item-card__button_sold-out"}`}
+                                    onClick={(e) => item.soldOut && e.preventDefault()}
+                                >
+                                    {item.soldOut ? "распродано" : "перейти к оформлению"}
                                 </a>
 
                                 <div
