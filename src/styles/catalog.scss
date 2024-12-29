@@ -112,6 +112,7 @@
     align-items: center;
     width: 100%;
     padding: 0 16px;
+    gap: 15px;
 
     margin-top: auto;
 
@@ -133,6 +134,7 @@
 }
 
 .product-item__title {
+    width: 50%;
     h4 {
         font-weight: bold;
         text-transform: uppercase;
