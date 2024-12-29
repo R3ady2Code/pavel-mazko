@@ -153,3 +153,11 @@
         gap: 6px;
     }
 }
+
+.video-gallery__container {
+    cursor: url("../assets/cursor/on.svg"), auto;
+}
+
+.video-gallery__container--sound-on {
+    cursor: url("../assets/cursor/off.svg"), auto;
+}
