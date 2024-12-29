@@ -1,4 +1,4 @@
-import { ref, uploadBytes, getDownloadURL, deleteObject, listAll } from "firebase/storage";
+import { ref, uploadBytes, getDownloadURL, deleteObject, listAll, getMetadata } from "firebase/storage";
 
 export class GalleryService {
     storage;
@@ -11,14 +11,20 @@ export class GalleryService {
     async all() {
         const result = await listAll(this.ref);
 
-        const photoUrls = [];
+        const photoData = await Promise.all(
+            result.items.map(async (item) => {
+                const metadata = await getMetadata(item);
+                const photoUrl = await getDownloadURL(item);
+                return {
+                    url: photoUrl,
+                    timeCreated: new Date(metadata.timeCreated)
+                };
+            })
+        );
 
-        for (const item of result.items) {
-            const photoUrl = await getDownloadURL(item);
-            photoUrls.push(photoUrl);
-        }
+        const sortedPhotos = photoData.sort((a, b) => b.timeCreated - a.timeCreated);
 
-        return photoUrls;
+        return sortedPhotos.map((photo) => photo.url);
     }
 
     async uploadImage(file) {
