@@ -13,12 +13,6 @@ const ItemSlider = ({ photos, coverImg }) => {
 
     const displayedPhotos = [coverImg, ...photos.filter((i) => i !== coverImg)];
 
-    useEffect(() => {
-        if (sliderRef.current) {
-            sliderRef.current.slideTo(0);
-        }
-    });
-
     return (
         <>
             {activeImage && (

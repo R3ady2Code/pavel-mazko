@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import imgSrc from "../../assets/link1.jpeg"; // Импорт изображения
+import imgSrc from "../../assets/link1.jpg"; // Импорт изображения
 import videoSrc from "../../assets/link2.mp4"; // Импорт изображения
 
 const LinkBlock = ({ type, title, path }) => {

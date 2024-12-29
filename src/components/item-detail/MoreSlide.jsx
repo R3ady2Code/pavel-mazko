@@ -12,17 +12,9 @@ const MoreSlide = ({ item }) => {
         setIsOnMouse(false);
     };
 
-    const handleScrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    };
-
     return (
-        <Link
-            onClick={handleScrollToTop}
-            to={`/catalog/${item.id}`}
+        <a
+            href={`/catalog/${item.id}`}
             className="more-slide"
             key={item.id}
             onMouseEnter={handleMouseEnter}
@@ -46,7 +38,7 @@ const MoreSlide = ({ item }) => {
                     <img src={item.coverImg} alt="First" className={`image fade-in`} />
                 )}
             </div>
-        </Link>
+        </a>
     );
 };
 
