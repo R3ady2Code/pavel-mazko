@@ -1,11 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import CatalogItem from "./CatalogItem";
-import { setStatus } from "../../redux/itemsSlice";
 
 const CatalogList = ({ items }) => {
-    const dispatch = useDispatch();
-
     return (
         <div className="catalog-list">
             {items.map((item, i) => (

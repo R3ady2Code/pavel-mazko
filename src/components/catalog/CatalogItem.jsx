@@ -1,5 +1,4 @@
-import { getDownloadURL, ref } from "firebase/storage";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const CatalogItem = ({ id, title, subtitle, price, secondSrc, imgSources, coverImg, soldOut }) => {
