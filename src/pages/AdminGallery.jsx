@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchGallery, uploadGalleryImage } from "../redux/itemsSlice";
+import { deleteGalleryImage, fetchGallery, uploadGalleryImage } from "../redux/itemsSlice";
 import imageCompression from "browser-image-compression";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/admin/Header";
@@ -63,6 +63,10 @@ const AdminGallery = () => {
         setIsLoading(false);
     };
 
+    const handleRemoveFromGallery = (image) => {
+        dispatch(deleteGalleryImage(image));
+    };
+
     useEffect(() => {
         if (!isAuthenticated) navigate("/yjw48jkxqr");
     }, []);
@@ -119,7 +123,7 @@ const AdminGallery = () => {
                         <button
                             type="button"
                             className="product-form__remove-image"
-                            onClick={() => handleRemoveFromGallery(index)}
+                            onClick={() => handleRemoveFromGallery(image)}
                         >
                             Удалить
                         </button>

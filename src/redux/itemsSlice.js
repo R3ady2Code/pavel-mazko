@@ -52,6 +52,11 @@ export const uploadGalleryImage = createAsyncThunk("gallery/uploadGalleryImage",
     return result;
 });
 
+export const deleteGalleryImage = createAsyncThunk("gallery/deleteGalleryImage", async (url) => {
+    await galleryModel.deleteImage(url);
+    return url;
+});
+
 const itemsSlice = createSlice({
     name: "items",
     initialState: {
@@ -101,6 +106,9 @@ const itemsSlice = createSlice({
             })
             .addCase(deleteItem.fulfilled, (state, action) => {
                 state.items = state.items.filter((item) => item.id !== action.payload);
+            })
+            .addCase(deleteGalleryImage.fulfilled, (state, action) => {
+                state.gallery = state.gallery.filter((item) => item !== action.payload);
             })
             .addCase(uploadImage.fulfilled, (state, action) => {
                 const { itemId } = action.payload;
