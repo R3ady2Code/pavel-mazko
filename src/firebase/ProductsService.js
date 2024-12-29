@@ -18,11 +18,11 @@ export class ProductService {
 
     async all() {
         const data = await getDocs(this.collection);
-        return data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+        return data.docs.map((doc) => ({ ...doc.data(), id: doc.id })).sort((a, b) => b.createdAt - a.createdAt);
     }
 
     async add(newItem) {
-        const docRef = await addDoc(this.collection, newItem);
+        const docRef = await addDoc(this.collection, { ...newItem, createdAt: Date.now() });
         return docRef;
     }
 
