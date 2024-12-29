@@ -67,6 +67,7 @@
 .product-item {
     display: flex;
     max-width: 100%;
+    min-width: 100%;
     flex-direction: column;
     width: fit-content;
     padding-bottom: 13px;
@@ -82,6 +83,7 @@
     margin-bottom: 17px;
     overflow: hidden;
     position: relative;
+    width: 100%;
 
     img {
         max-width: 100%;
