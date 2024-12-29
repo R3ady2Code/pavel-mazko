@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteGalleryImage, fetchGallery, uploadGalleryImage } from "../redux/itemsSlice";
-import imageCompression from "browser-image-compression";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/admin/Header";
 
@@ -16,23 +15,8 @@ const AdminGallery = () => {
 
     const handleImageChange = async (e) => {
         const files = e.target.files;
-        const compressedImages = [];
 
-        for (let file of files) {
-            try {
-                const options = {
-                    maxSizeMB: 0.25, // Maximum file size (1MB in this case)
-                    maxWidthOrHeight: 1024, // Maximum width or height
-                    useWebWorker: true // Use web worker for better performance
-                };
-                const compressedFile = await imageCompression(file, options);
-                compressedImages.push(compressedFile);
-            } catch (error) {
-                console.error("Error compressing image:", error);
-            }
-        }
-
-        setImages((prevImages) => [...prevImages, ...compressedImages]);
+        setImages((prevImages) => [...prevImages, ...files]);
     };
 
     const handleRemoveImage = (index) => {

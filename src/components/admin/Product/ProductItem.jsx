@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteImage, deleteItem, updateItem, uploadImage } from "../../../redux/itemsSlice";
-import imageCompression from "browser-image-compression";
 
 const ProductItem = ({ item }) => {
     const dispatch = useDispatch();
@@ -28,23 +27,7 @@ const ProductItem = ({ item }) => {
 
     const handleImageChange = async (e) => {
         const files = e.target.files;
-        const compressedImages = [];
-
-        for await (let file of files) {
-            try {
-                const options = {
-                    maxSizeMB: 0.2, // Maximum file size (1MB in this case)
-                    maxWidthOrHeight: 1024, // Maximum width or height
-                    useWebWorker: true // Use web worker for better performance
-                };
-                const compressedFile = await imageCompression(file, options);
-                compressedImages.push(compressedFile);
-            } catch (error) {
-                console.error("Error compressing image:", error);
-            }
-        }
-
-        setNewImage((prevImages) => [...prevImages, ...compressedImages]);
+        setNewImage((prevImages) => [...prevImages, ...files]);
     };
 
     const handleUploadImage = async () => {
