@@ -7,6 +7,7 @@ const ProductItem = ({ item }) => {
     const [title, setTitle] = useState(item.title);
     const [subtitle, setSubtitle] = useState(item.subtitle);
     const [price, setPrice] = useState(item.price);
+    const [newPrice, setNewPrice] = useState(item.newPrice);
     const [description, setDescription] = useState(item.description);
     const [images, setImages] = useState(item.imgSources);
     const [coverImage, setCoverImage] = useState(item.coverImg);
@@ -16,7 +17,7 @@ const ProductItem = ({ item }) => {
     const [newImage, setNewImage] = useState([]);
 
     const handleUpdateItem = async () => {
-        const updatedData = { title, description, subtitle, price, properties };
+        const updatedData = { title, description, subtitle, price, properties, newPrice };
         await dispatch(updateItem({ id: item.id, updatedData }));
         alert("Данные обновлены");
     };
@@ -97,12 +98,22 @@ const ProductItem = ({ item }) => {
                     />
                     <input value={price} onChange={(e) => setPrice(e.target.value)} className="product-form__input" />
 
+                    <div className="product-item__input">
+                        <label htmlFor="">Новая цена</label>
+                        <input
+                            value={newPrice}
+                            onChange={(e) => setNewPrice(e.target.value)}
+                            className="product-form__input"
+                        />
+                    </div>
+
                     <textarea
                         className="product-admin__textarea"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                     />
                 </div>
+
                 <div className="key-value-editor">
                     {properties?.map((pair, index) => (
                         <div key={`index${item.id}`} className="property-row">

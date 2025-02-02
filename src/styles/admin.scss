@@ -236,6 +236,12 @@ $input-border: #ccc;
     }
 }
 
+.product-item__input {
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+}
+
 .form-checkbox {
     user-select: none;
 }
