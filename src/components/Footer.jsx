@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 const Footer = () => {
-    return <footer className="footer">© 2024, Pavel Mazko</footer>;
+    const currentYear = useMemo(() => new Date().getFullYear(), []);
+
+    return <footer className="footer">© {currentYear}, Pavel Mazko</footer>;
 };
 
 export default Footer;

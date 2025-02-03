@@ -48,7 +48,7 @@ const CatalogItem = ({ id, title, subtitle, price, newPrice, secondSrc, imgSourc
                 {newPrice ? (
                     <div className="product-item__price">
                         <span>₽ {price}</span>
-                        <span>₽ {price}</span>
+                        <span>₽ {newPrice}</span>
                     </div>
                 ) : (
                     <span>₽ {price}</span>
