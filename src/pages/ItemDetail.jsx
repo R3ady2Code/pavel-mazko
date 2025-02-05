@@ -40,8 +40,6 @@ const ItemDetail = () => {
         }
     }, [status, dispatch, item]);
 
-    console.log(item);
-
     return (
         <>
             {isLoaderVisible && (
@@ -70,7 +68,14 @@ const ItemDetail = () => {
                             <ItemSlider photos={item.imgSources} coverImg={item.coverImg} />
                             <div className="item-card__right">
                                 <div className="item-card__ui">
-                                    <span className="item-card__price">₽ {item.price}</span>
+                                    {item.newPrice ? (
+                                        <div className="product-item__price">
+                                            <span className="item-card__price">₽ {item.newPrice}</span>
+                                            <span className="item-card__price">₽ {item.price}</span>
+                                        </div>
+                                    ) : (
+                                        <span className="item-card__price">₽ {item.price}</span>
+                                    )}
 
                                     <a
                                         href="https://t.me/pavelmazkosupport"
@@ -99,7 +104,14 @@ const ItemDetail = () => {
                                         <h3>{item.title}</h3>
                                     </div>
 
-                                    <span>₽ {item.price}</span>
+                                    {item.newPrice ? (
+                                        <div className="product-item__price">
+                                            <span>₽ {item.price}</span>
+                                            <span>₽ {item.newPrice}</span>
+                                        </div>
+                                    ) : (
+                                        <span>₽ {item.price}</span>
+                                    )}
                                 </div>
 
                                 <a
