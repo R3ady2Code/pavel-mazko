@@ -70,8 +70,8 @@ const ItemDetail = () => {
                                 <div className="item-card__ui">
                                     {item.newPrice ? (
                                         <div className="product-item__price">
-                                            <span className="item-card__price">₽ {item.newPrice}</span>
                                             <span className="item-card__price">₽ {item.price}</span>
+                                            <span className="item-card__price">₽ {item.newPrice}</span>
                                         </div>
                                     ) : (
                                         <span className="item-card__price">₽ {item.price}</span>
@@ -106,8 +106,8 @@ const ItemDetail = () => {
 
                                     {item.newPrice ? (
                                         <div className="product-item__price">
-                                            <span>₽ {item.price}</span>
                                             <span>₽ {item.newPrice}</span>
+                                            <span>₽ {item.price}</span>
                                         </div>
                                     ) : (
                                         <span>₽ {item.price}</span>
