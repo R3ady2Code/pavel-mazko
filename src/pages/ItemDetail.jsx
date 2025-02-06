@@ -106,8 +106,8 @@ const ItemDetail = () => {
 
                                     {item.newPrice ? (
                                         <div className="product-item__price">
-                                            <span>₽ {item.newPrice}</span>
                                             <span>₽ {item.price}</span>
+                                            <span>₽ {item.newPrice}</span>
                                         </div>
                                     ) : (
                                         <span>₽ {item.price}</span>
