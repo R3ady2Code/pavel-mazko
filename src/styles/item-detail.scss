@@ -419,8 +419,23 @@
 .item-detail__main {
     margin-bottom: 138px;
 
+    @media (max-width: 1350px) {
+        .product-item__price {
+            justify-content: flex-end;
+        }
+    }
+
     @media (max-width: 756px) {
         margin-bottom: 65px;
+
+        .product-item__price {
+            flex-direction: row;
+            gap: 8px;
+        }
+    }
+
+    .product-item__price {
+        justify-content: flex-start;
     }
 }
 
