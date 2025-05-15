@@ -23,7 +23,8 @@ export const addItem = createAsyncThunk("items/addItem", async (newItem) => {
 });
 
 export const updateItem = createAsyncThunk("items/updateItem", async ({ id, updatedData }) => {
-    await productModel.update(id, updatedData);
+    const result = await productModel.update(id, updatedData);
+    console.log(result);
     return { id, updatedData };
 });
 

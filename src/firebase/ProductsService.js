@@ -18,7 +18,18 @@ export class ProductService {
 
     async all() {
         const data = await getDocs(this.collection);
-        return data.docs.map((doc) => ({ ...doc.data(), id: doc.id })).sort((a, b) => b.createdAt - a.createdAt);
+        const result = data.docs.map((doc) => ({ ...doc.data(), id: doc.id })).sort((a, b) => {
+            if (a.index && b.index) {
+                return Number(a.index) - Number(b.index);
+            }
+
+            if (a.index) return -1;
+            if (b.index) return 1;
+
+            return b.createdAt - a.createdAt;
+        });
+
+        return result
     }
 
     async add(newItem) {
@@ -31,7 +42,12 @@ export class ProductService {
     }
 
     async update(id, updatedData) {
-        await updateDoc(this.doc(id), updatedData);
+        try {
+            console.log(updatedData)
+            await updateDoc(this.doc(id), updatedData);
+        } catch (error) {
+            console.log("Error updating document: ", error);
+        }
     }
 
     async uploadImage(file, itemId, isCoverImg) {

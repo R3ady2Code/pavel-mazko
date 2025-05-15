@@ -7,17 +7,18 @@ const ProductItem = ({ item }) => {
     const [title, setTitle] = useState(item.title);
     const [subtitle, setSubtitle] = useState(item.subtitle);
     const [price, setPrice] = useState(item.price);
-    const [newPrice, setNewPrice] = useState(item.newPrice);
+    const [newPrice, setNewPrice] = useState(item.newPrice ?? '');
     const [description, setDescription] = useState(item.description);
     const [images, setImages] = useState(item.imgSources);
     const [coverImage, setCoverImage] = useState(item.coverImg);
     const [isSoldOut, setIsSoldOut] = useState(item.soldOut ?? false);
+    const [index, setIndex] = useState(item.index ?? '');
     const [properties, setProperties] = useState(item.properties);
 
     const [newImage, setNewImage] = useState([]);
 
     const handleUpdateItem = async () => {
-        const updatedData = { title, description, subtitle, price, properties, newPrice };
+        const updatedData = { title, description, subtitle, price, properties, newPrice, index };
         await dispatch(updateItem({ id: item.id, updatedData }));
         alert("Данные обновлены");
     };
@@ -107,6 +108,17 @@ const ProductItem = ({ item }) => {
                         />
                     </div>
 
+                    <div className="product-item__input">
+                        <label htmlFor="">Индекс</label>
+                        <input
+                            type="number"
+                            value={index}
+                            onChange={(e) => setIndex(e.target.value)}
+                            className="product-form__input"
+                        />
+                    </div>
+
+
                     <textarea
                         className="product-admin__textarea"
                         value={description}
@@ -116,7 +128,7 @@ const ProductItem = ({ item }) => {
 
                 <div className="key-value-editor">
                     {properties?.map((pair, index) => (
-                        <div key={`index${item.id}`} className="property-row">
+                        <div className="property-row">
                             <input
                                 type="text"
                                 value={pair.key}
@@ -144,7 +156,7 @@ const ProductItem = ({ item }) => {
 
             <ul className="product-admin__image-list">
                 {item.imgSources?.map((imageUrl, index) => (
-                    <li key={index} className="product-form__image-container">
+                    <li className="product-form__image-container">
                         <img src={imageUrl} alt={`Uploaded ${index}`} className="product-form__image-preview" />
                         <button
                             type="button"
